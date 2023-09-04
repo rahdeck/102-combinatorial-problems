@@ -1,0 +1,25 @@
+---
+title: '002'
+author: "Radosław Majkut"
+date: "2023-09-03"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The student lockers at Olympic High are numbered consecutively beginning with locker number 1. The plastic digits used to number the lockers cost two cents apiece. Thus, it costs two cents to label locker number 9 and four cents to label locker number 10. If it costs $137.94 to label all the lockers, how many lockers are there at the school?
+
+Solution:
+
+We know that there were $\frac{13794}{2} = 6897$ plastic digits used. Therefore, there couldn't have been more than 9,999 lockers in the school so the equation to solve is $9 \cdot 2 + 90 \cdot 4 + 900 \cdot 6 + x \cdot 8 = 13794$, where:
+
+* 9 is the number of numbers with one digit only (from 1 to 9),
+* 90 is the number of numbers with two digits only (from 10 to 99),
+* 900 is the number of numbers with 3 digits only (from 100 to 999),
+* *x* is the number of numbers with four digits (unknown).
+
+When we solve it for *x*, we get 1002, therefore the number of lockers is 2001 (the first four-digit locker number is 1000 and the last is 2001).

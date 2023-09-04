@@ -1,0 +1,22 @@
+---
+title: '001'
+author: "Radosław Majkut"
+date: "2023-09-03"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Mr. and Mrs. Zeta want to name their baby Zeta so that its monogram (first, middle, and last initials) will be in alphabetical order with no letters repeated. How many such monograms are possible?
+
+Solution 1:
+
+The last initial is fixed ('Z'). Therefore, we should be able to pick any two letters from the alphabet (without the letter 'Z')  and order them alphabetically. Assuming there are 25 such letters this can be done in $\binom{25}{2} = \frac{25 \cdot 24}{2} = 300$
+
+Solution 2:
+
+Let's fix the first initial at 'A'. Then we have 24 choices of the next initial (from 'B' to 'Y' because 'Z' is fixed). Now we change the first initial to 'B'. Then we have 23 choices of the next initial (from 'C' to 'Y'). We keep doing this until we reach 'X' for the first initial, 'Y' for the second initial and 'Z' for the third initial. All those possibilities add up to $24 + 23 + 22 + \dots + 1$. We know that this is equal to $\frac{n(n+1)}{2} = \binom{n+1}{2} = \frac{25 \cdot 24}{2} = 300$
