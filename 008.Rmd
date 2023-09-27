@@ -1,0 +1,91 @@
+---
+title: 'Problem 8'
+author: "Radosław Majkut"
+date: "2023-09-03"
+output:  pdf_document
+---
+
+### Problem
+
+A spider has one sock and one shoe for each of its eight legs. In how many different orders can the spider put on its socks and shoes, assuming that, on each leg, the sock must be put on before the shoe?
+
+### Solution
+
+We can think of there being 16 items, paired into 8 pairs of sock and shoe. The shoe will always follow the sock. So let's say the items are:
+
+* $s_1$ ('s' for sock, on foot \#1), $b_1$ ('b' for boot, on foot \#1),
+* $s_2$, $b_2$
+...
+* $s_8$, $b_8$
+
+The order in which we put socks and shoes on different legs doesn't matter as long as the sock on a given leg comes before the shoe.
+
+We can think of the ordering as 16 different positions to choose from. We can place the elements of the first pair ($s_1$, $b_1$) into $\binom{16}{2}$ positions. There are two possibilities of ordering the pair in this position: ($s_1$,$b_1$) and ($b_1$,$s_1$) but we can "force" (or assume) that only one ordering is correct ($s_1$ before $b_1$). For example, one of the positions will be:
+
+```{tikz, fig.ext = 'png', echo=FALSE}
+\usetikzlibrary{arrows}
+\usetikzlibrary{chains}
+\begin{tikzpicture}[
+  node distance = 0mm,
+    start chain = going right,
+     box/.style = {draw, semithick, minimum size=0.6cm,
+                   outer sep = 0mm, on chain}
+                        ]
+  \node[box,label=below:\tiny{1}] {$\tiny{s_1}$};
+  \node[box,label=below:\tiny{2}] {$$};
+  \node[box,label=below:\tiny{3}] {$\tiny{b_1}$};
+  \node[box,label=below:\tiny{4}] {$$};
+  \node[box,label=below:\tiny{5}] {$$};
+  \node[box,label=below:\tiny{6}] {$$};
+  \node[box,label=below:\tiny{7}] {$$};
+  \node[box,label=below:\tiny{8}] {$$};
+  \node[box,label=below:\tiny{9}] {$$};
+  \node[box,label=below:\tiny{10}] {$$};
+  \node[box,label=below:\tiny{11}] {$$};
+  \node[box,label=below:\tiny{12}] {$$};
+  \node[box,label=below:\tiny{13}] {$$};
+  \node[box,label=below:\tiny{14}] {$$};
+  \node[box,label=below:\tiny{15}] {$$};
+  \node[box,label=below:\tiny{16}] {$$};
+\end{tikzpicture}
+```
+
+or
+
+```{tikz, fig.ext = 'png', echo=FALSE}
+\usetikzlibrary{arrows}
+\usetikzlibrary{chains}
+\begin{tikzpicture}[
+  node distance = 0mm,
+    start chain = going right,
+     box/.style = {draw, semithick, minimum size=0.6cm, 
+                   outer sep = 0mm, on chain}
+                        ]
+  \node[box,label=below:\tiny{1}] {$$};
+  \node[box,label=below:\tiny{2}] {$$};
+  \node[box,label=below:\tiny{3}] {$$};
+  \node[box,label=below:\tiny{4}] {$$};
+  \node[box,label=below:\tiny{5}] {$$};
+  \node[box,label=below:\tiny{6}] {$\tiny{s_1}$};
+  \node[box,label=below:\tiny{7}] {$$};
+  \node[box,label=below:\tiny{8}] {$$};
+  \node[box,label=below:\tiny{9}] {$$};
+  \node[box,label=below:\tiny{10}] {$$};
+  \node[box,label=below:\tiny{11}] {$$};
+  \node[box,label=below:\tiny{12}] {$$};
+  \node[box,label=below:\tiny{13}] {$\tiny{b_1}$};
+  \node[box,label=below:\tiny{14}] {$$};
+  \node[box,label=below:\tiny{15}] {$$};
+  \node[box,label=below:\tiny{16}] {$$};
+\end{tikzpicture}
+```
+
+and so on for the total of $\binom{16}{2}$ positions.
+
+For the next pair we only have 14 positions to choose from, $\binom{14}{2}$, etc until the final pair which has only two places to occupy (and one way of choosing them): $\binom{2}{2}$. Multiplying those counts gives us:
+
+$$\binom{16}{2}\binom{14}{2}\binom{12}{2}\binom{10}{2}\binom{8}{2}\binom{6}{2}\binom{4}{2}\binom{2}{2}$$
+
+or to put it another way:
+
+$$\frac{16!}{2^8}$$

@@ -1,10 +1,9 @@
 ---
-title: '001'
+title: 'Problem 1'
 author: "Radosław Majkut"
 date: "2023-09-03"
 output:
-  html_document:
-    df_print: paged
+  pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -15,7 +14,7 @@ Mr. and Mrs. Zeta want to name their baby Zeta so that its monogram (first, midd
 
 Solution 1:
 
-The last initial is fixed ('Z'). Therefore, we should be able to pick any two letters from the alphabet (without the letter 'Z')  and order them alphabetically. Assuming there are 25 such letters this can be done in $\binom{25}{2} = \frac{25 \cdot 24}{2} = 300$
+The last initial is fixed ('Z' for Zeta). Therefore, we should be able to pick any two letters from the alphabet (without the letter 'Z')  and order them alphabetically. Assuming there are 25 such letters this can be done in $\binom{25}{2} = \frac{25 \cdot 24}{2} = 300$
 
 Solution 2:
 

@@ -1,0 +1,30 @@
+---
+title: 'Problem 3'
+author: "Radosław Majkut"
+date: "2023-09-03"
+output:
+  pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Problem
+
+Let *n* be an odd integer greater than 1. Prove that the sequence:
+
+$$\binom{n}{1}, \binom{n}{2},\dots,\binom{n}{\frac{n-1}{2}}$$
+
+contains an odd number of odd numbers. 
+
+### Solution
+
+A look at the values of a full sequence from $\binom{n}{0}$ to $\binom{n}{n}$ should hopefully be instructive. Let's say that n = 9, then the sequence is 
+
+$$1, 9, 36, 84, 126, 126, 84, 36, 9, 1$$
+The sum of the whole sequence is $2^n = 2^9 = 512$. More generally, the sum of the sequence for any n > 0 is always going to be a power of 2, so an even number.
+
+The sum of the first half of the sequence, from $\binom{9}{0}$ to $\binom{9}{4}$, (1, 9, 36, 84, 126) is therefore also an even number, $\frac{2^9}{2} = 2^8$.
+
+However, we were told to skip the first value ($\binom{9}{0} = 1$) and start with $\binom{9}{1}$ and go until $\binom{9}{4}$. The result will be an odd number since an even number minus one gives an odd number. But we also know that initially the sum was even and had at least one odd number in it (namely 1) which we were told not to count. Therefore, before removing 1, it had to have an even number of odd numbers in it (because an odd number of odd numbers summed with only even numbers will not add up to an even number. Only an even number of odd numbers will do that). Since we had an even number of odd numbers and removed one odd number from it (the said 1), now we must be left with an odd number of odd numbers in the sequence. 

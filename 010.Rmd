@@ -1,0 +1,39 @@
+---
+title: 'Problem 10'
+author: "Radosław Majkut"
+date: "2023-09-23"
+output:  pdf_document
+---
+
+### Problem
+
+Given a rational number, write it as a fraction in lowest terms and calculate the product of the resulting numerator and denominator. For how many rational numbers between 0 and 1 will 20! be the resulting product?
+
+### Solution
+
+It sounds like prime factorization of integers from 1 to 20 might be of use here:
+
+1. no factors
+2. 2
+3. 3
+4. 2, 2
+5. 5
+6. 2, 3
+7. 7
+8. 2, 2, 2
+9. 3, 3
+10. 2, 5
+11. 11
+12. 2, 2, 3
+13. 13
+14. 2, 7
+15. 3, 5
+16. 2, 2, 2, 2
+17. 17
+18. 2, 3, 3
+19. 19
+20. 2, 2, 5
+
+These eight distinct prime factors factorize 20! in the following way: $2^{18} \cdot 3^8 \cdot 5^4 \cdot 7^2 \cdot 11^1 \cdot 13^1 \cdot 17^1 \cdot 19^1$
+
+Of these eight factors we can choose from one to seven to be in the numerator (because at least one needs to remain in the denominator), which can be done in $2^8 - 2 = `r 2**8 - 2`$ ways (we subtract two invalid fractions: one with 0 items in the numerator and one with 8 items in the numerator). Notice that it doesn't matter if the numerator is greater than the denominator because in this case we can swap them to keep the fraction between 0 and 1. Also notice that we are double-counting, e.g. a fraction $\frac{17}{2^{18} \cdot 3^8 \cdot 5^4 \cdot 7^2 \cdot 11^1 \cdot 13^1 \cdot 19^1}$ will be counted once when 17 is in the numerator and once more when 17 is in the denominator. So we need to divide the number of results by 2, i.e. $\frac{2^7-2}{2} = `r (2**8-2)/2`$. Finally, we forgot the modest unit but $\frac{1}{20!}$ is a valid fraction as well so we need to count it too, so the final answer is 128.

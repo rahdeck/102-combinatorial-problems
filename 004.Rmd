@@ -1,0 +1,50 @@
+---
+title: 'Problem 4'
+author: "Radosław Majkut"
+date: "2023-09-03"
+output:
+  pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Problem
+
+How many positive integers not exceeding 2001 are multiples of 3 or 4 but not 5?
+
+### Solution
+
+In the first 2001 positive integers, there are:
+
+- $\lfloor \frac{2001}{3} \rfloor =$ `r 2001%/%3` integers divisible by 3
+- $\lfloor \frac{2001}{4} \rfloor =$ `r 2001%/%4` integers divisible by 4
+- $\lfloor \frac{2001}{12} \rfloor =$ `r 2001%/%12` integers divisible by 12 ($3 \cdot 4$)
+- $\lfloor \frac{2001}{15} \rfloor =$ `r 2001%/%15` integers divisible by 15 ($3 \cdot 5$)
+- $\lfloor \frac{2001}{20} \rfloor =$ `r 2001%/%20` integers divisible by 20 ($4 \cdot 5$)
+- $\lfloor \frac{2001}{60} \rfloor =$ `r 2001%/%60` integers divisible by 60 ($3 \cdot 4 \cdot 5$)
+
+```{tikz, fig.cap = "Venn diagram", fig.ext = 'png', echo=FALSE}
+\begin{tikzpicture}
+  \draw (3,0) circle (1.5) +(-0.7,-0.5) node [text=black] {$3$};
+  \draw (5,0) circle (1.5) +(0.7,-0.5) node [text=black] {$4$};
+  \draw (4, 1.5) circle (1.5) +(0,1) node [text=black] {$5$};
+  \draw (3.2,1) node [text=black] {$15$};
+  \draw (4.7,1) node [text=black] {$20$};
+  \draw (4,0.5) node [text=black] {$60$};
+  \draw (4,-0.5) node [text=black] {$12$};
+\end{tikzpicture}
+```
+
+So our task is to count the number of integers divisible by 3 or 4 (or both) but not by 5.
+
+The number of integers divisible by 3 or 4 or both is the sum of the number of integers divisible by 3 and the number of integers divisible by 4 minus the number of integers divisible by 12 (because they're accounted for in both numbers so we need to subtract them once to avoid double-counting):
+
+$$`r 2001 %/% 3` + `r 2001 %/% 4` - `r 2001 %/% 12`$$
+
+From that result we need to subtract the number of integers divisible by 15, 20 and 60, as they are divisible by 3 or 4 but also by 5 so we cannot count them. But that's not the end yet! We have subtracted integers divisible by 60 three times (60 is divisible by 15 and 20 too) so we need to add it back in twice.
+
+The final result is:
+
+$$`r 2001 %/% 3` + `r 2001 %/%4` - `r 2001 %/% 12` - `r 2001 %/% 15` - `r 2001 %/% 20` - `r 2001 %/% 60` + `r 2001 %/% 60` + `r 2001 %/% 60` = `r 2001 %/% 3 + 2001 %/%4 - 2001 %/% 12 - 2001 %/% 15 - 2001 %/% 20 - 2001 %/% 60 + 2001 %/% 60 + 2001 %/% 60`$$

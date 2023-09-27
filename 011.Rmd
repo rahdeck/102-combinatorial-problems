@@ -1,0 +1,40 @@
+---
+title: 'Problem 11'
+author: "Radosław Majkut"
+date: "2023-09-03"
+output:
+  pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Problem
+
+Determine the number of ways to choose five numbers from the first eighteen positive integers such that any two chosen numbers differ by at least 2.
+
+### Solution
+
+Let's use a well-known combinatorial aid of stars-and-bars. We know the sequence will have such elements in it in this order:
+
+$$*|*|*|*|*$$
+where the stars are five of the eighteen integers we choose and *|* are integers separating the chosen integers from being too close to each other (because the chosen integers cannot touch or, in other words, must differ by at least 2). There are 5 stars and 4 bars for the total of 9 integers.
+
+Now we must distribute the remaining 9 integers (bars) in the 6 possible places (the first place being before the first star, the next one at the first bar, up until after the last star). In any of these places/positions we can stick any number of bars between 0 and 9. To exemplify, let's imagine we stick all of them in the first available position like this:
+
+$$| | | | | | | | |*|*|*|*|*$$
+
+This will represent choosing the following five integers: $10, 12, 14, 16, 18$.
+
+So the fourteen bars represent integers we do not choose and the five stars represent integers we choose.
+
+We just need to answer one question now: in how many ways can we distribute 9 indistinguishable stars into 6 distinguishible urns (positions)?
+
+Again, we can apply stars-and-bars here as well. The 9 remaining integers will be represented by stars and the 5 separators by bars (remember: to have 6 partitions we only need 5 separators), for the total of 14 positions (because empty urns are allowed). An example arrangement:
+
+$$|||||*********$$
+represents sticking all 9 integers into the last position (urn).
+
+This can be done in $\binom{14}{5} = `r choose(14,5)`$ number of ways.
+

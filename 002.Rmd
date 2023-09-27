@@ -1,10 +1,9 @@
 ---
-title: '002'
+title: 'Problem 2'
 author: "Radosław Majkut"
 date: "2023-09-03"
 output:
-  html_document:
-    df_print: paged
+  pdf_document
 ---
 
 ```{r setup, include=FALSE}
