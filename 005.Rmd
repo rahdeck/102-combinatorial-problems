@@ -7,7 +7,7 @@ output:  pdf_document
 
 ### Problem
 
-Let 
+Let
 
 $$x = .123456789101112 .. .998999,$$
 where the digits are obtained by writing the integers 1 through 999 in order. Find the 1983rd digit to the right of the decimal point
@@ -20,4 +20,4 @@ There are:
 * 90 double-digit integers, from 10 to 99, for the total of $2 \cdot 90 = 180$ digits
 * 900 triple-digit integers, from 100 to 999, for the total of $3 \cdot 900 = 2700$ digits
 
-Since 1983 is greater than $180 + 9$ we can subtract them to get how many digits remain. This is $1983 - 180 - 9 = 1794$. To get the index of the triple-digit integer which will contain the 1983rd digit in the string, we do floor division by 3 which works out to be 598. That 598th triple-digit integer is 697 (because the first one is 100). But which digit is at the 1983rd position? We notice that because $1794 \mod 3 = 0$ (1794 divides without remainder by 3) we can conclude that the last digit, 7, is the answer (if the remainder was 1, the digit 9 would be the answer and if the remainder was 2, the digit 6 would be the answer).
+Since 1983 is greater than $180 + 9$ we can subtract them to get how many digits remain. This is $1983 - 180 - 9 = 1794$. To get the index of the triple-digit integer which will contain the 1983rd digit in the string, we do floor division by 3 which works out to be 598. That 598th triple-digit integer is 697 (because the first one is 100). But which digit is at the 1983rd position? We notice that because $1794 \mod 3 = 0$ (1794 divides without remainder by 3) we can conclude that the last digit, 7, is the answer (if the remainder was 1, the digit 6 would be the answer and if the remainder was 2, the digit 9 would be the answer).
