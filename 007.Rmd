@@ -1,0 +1,22 @@
+---
+title: 'Problem 7'
+author: "Radosław Majkut"
+date: "2023-09-29"
+output:  pdf_document
+---
+
+### Problem
+
+At the end of a professional bowling tournament, the top 5 bowlers have a play-off. First #5 bowls #4. The loser receives 5th prize and the winner bowls #3 in another game. The loser of this game receives receives 4th prize and the winner bowls #2. The loser of this game receives 3rd prize and the winner bowls #1. The winner of this game gets 1 st prize and the loser gets 2nd prize. In how many orders can bowlers #1 through #5 receive the prizes?
+
+
+### Solution
+
+It looks like we can use the multiplication principle here:
+
+1. At the first game of #5 and #4, there can only be two choices, namely either #4 or #5 gets the 5th prize.
+2. At the second game, there can be two choices for each of the results in the previous game. If #5 lost and got 5th prize, then the 4th prize will either go to #4 or to #3. If #4 lost and got the 5th prize, the 4th prize will either go to #5 or #3. So we are up to 2 x 2 possible orderings: (5, 4), (5, 3), (4, 5), (4, 3) for the last two places.
+3. At the third game, for each of the previous four orderings we again two choices so now we are up to 2 x 2 x 2 orderings.
+4. At the fourth game, for each of the previous eight orderings we again two choices so now we are up to 2 x 2 x 2 x 2 orderings. This was the last game as the players here got 2nd and 1st prize.
+
+So in total there are 16 orders for bowlers to receive the prizes.
