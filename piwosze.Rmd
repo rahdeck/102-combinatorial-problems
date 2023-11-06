@@ -1,9 +1,5 @@
 ---
-title: 'Problem 11'
-author: "Radosław Majkut"
-date: "2023-09-03"
-output:
-  pdf_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}

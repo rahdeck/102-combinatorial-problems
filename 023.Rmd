@@ -1,0 +1,29 @@
+---
+title: 'Problem 23'
+author: "Radosław Majkut"
+date: "2023-11-05"
+output:  pdf_document
+---
+
+```{r echo=FALSE}
+options(scipen=999)
+```
+
+### Problem
+
+A set of positive numbers has the triangle property if it has three distinct elements that are the lengths of the sides of a triangle whose area is positive. Consider sets {4,5,6 ,...,n} of consecutive positive integers, all of whose ten-element subsets have the triangle property. What is the largest possible value of n?
+
+### Solution
+
+Three distinct numbers have a triangle property if the sum of the two smallest ones is greater than the third one (a + b > c, where c is the maximum number of the three), because then the triangle made with the sides of lengths a, b, c has a positive area (non-zero).
+
+We can approach this by trying to build the smallest ten-element set that does *NOT* have this property. We start with 4 and 5 as the first numbers (to keep it smallest possible). Then, the next smallest number which ensures this property is not met is 9 (4 + 5 is not greater than 9). Then, the next number is 5 + 9 = 14, so now our set has is {4, 5, 9, 14}. We continue this way, adding the two largest numbers in the set to get the next number in the set:
+
+* 9 + 14 = 23
+* 14 + 23 = 37
+* 23 + 37 = 60
+* 37 + 60 = 97
+* 60 + 97 = 157
+* 97 + 157 = 254
+
+So {4,5,9,14,23,37,60,97,157,254} is the smallest set which doesn't have that property. Therefore any smaller set will have it. Therefore the largest value of n is 254 - 1 = 253.

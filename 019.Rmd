@@ -1,0 +1,19 @@
+---
+title: 'Problem 19'
+author: "Radosław Majkut"
+date: "2023-10-22"
+output:  pdf_document
+---
+
+```{r echo=FALSE}
+options(scipen=999)
+```
+
+### Problem
+
+Call a 7-digit telephone number $d_1 d_2 d_3-d_4 d_5 d_6 d_7$ memorable if the prefix sequence $d_1 d_2 d_3$ is exactly the same as either of the sequences $d_4 d_5 d_6$ or $d_5 d_6 d_7$ (possibly both). Assuming that each $d_i$ can be any of the ten decimal digits 0, 1, 2, ... ,9, find the number of different memorable telephone numbers.
+
+
+### Solution
+
+There are $10 \cdot 10 \cdot 10 = 1000$ possibilities for the prefix sequence $d_1 d_2 d_3$. If the sequence $d_4 d_5 d_6$ is the same, then there are 10 possibilities for $d_7$ (0, 1, 2, ... , 9), for the total of 10,000 possibilities. Similarly, if the sequence $d_5 d_6 d_7$ are the same, then there are 10 possibilities for $d_4$ (0, 1, 2, ... ,9). That gives us 20,000 possibilities. Now we need to exclude numbers where $d_4 d_5 d_6$ and $d_5 d_6 d_7$ are the same (because we counted them twice), which can happen in 10 ways only, when all digits of both sequences are the same (000-0000, 111-1111, 222-2222, ... , 999-9999), leaving us with 19,990 memorable numbers.

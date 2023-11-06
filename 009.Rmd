@@ -1,0 +1,14 @@
+---
+title: 'Problem 9'
+author: "Radosław Majkut"
+date: "2023-10-02"
+output:  pdf_document
+---
+
+### Problem
+
+A drawer in a darkened room contains 100 red socks, 80 green socks, 60 blue socks and 40 black socks. A youngster selects socks one at a time from the drawer but is unable to see the color of the socks drawn. What is the smallest number of socks that must be selected to guarantee that the selection contains at least 10 pairs? (A pair of socks is two socks of the same color. No sock may be counted in more than one pair.)
+
+### Solution
+
+If 22 socks are selected, then there exist selections of colors in which no 10 pairs exist, for example: $19_r + 1_g + 1_b + 1_k$ (there are only 9 red pairs in the selection). However, if 23 socks are selected, then there isn't a way to avoid having 10 pairs. Since 23 is odd, we can compose it by addition of at most 3 odd-numbered collections of socks of different color, which have one unpaired sock. That means we "lose" 3 socks in total due to being unpaired. That leaves us with 20 socks which are paired for the total of 10 pairs. 

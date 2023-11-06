@@ -1,0 +1,90 @@
+---
+title: 'Problem 21'
+author: "Radosław Majkut"
+date: "2023-10-23"
+output:  pdf_document
+---
+
+```{r echo=FALSE}
+options(scipen=999)
+```
+
+### Problem
+
+In how many ways can one arrange the numbers 21, 31, 41, 51, 61, 71, and 81 such that the sum of every four consecutive numbers is divisible by 3?
+
+### Solution
+
+Facts:
+
+- A number is divisible by 3 if the sum of its digits is divisible by 3.
+- Sums of digits in the numbers in the puzzle are:
+  - 21: 3 (3|21)
+  - 31: 4
+  - 41: 5
+  - 51: 6 (3|51)
+  - 61: 7
+  - 71: 8
+  - 81: 9 (3|81)
+- There are 7! permutations of those 7 numbers
+
+Lemmas:
+
+1. There cannot be a consecutive permutation of 31, 41, 61, 71 anywhere because (while those four numbers do add up to a number divisible by 3: 204/3 = 68) no sum of 3 of them in any order is divisible by 3, therefore it could not be preceded or succeeded by any of the remaining numbers, all of which are divisible by 3.
+
+1. There cannot be a consecutive 3-permutation of 31, 41, 61, 71 anywhere because no sum of 3 of them in any order is divisible by 3, therefore it could not be preceded or succeeded by any of the remaining numbers, all of which are either divisible by 3 or would create a permutation from #1.
+
+1. There cannot be a 4-permutation containing 3 numbers from 31, 41, 61, 71 for the same reason as above. 
+
+1. There cannot be a consecutive permutation of 21, 51, 81 anywhere because none of the remaining numbers is divisible by 3, therefore it could not be preceded or succeeded by any of the remaining numbers.
+
+From the numbers not divisible by 3 (31, 41, 61, 71), we can pick the following pairs (of all $\binom{4}{2} = 6$ possible pairs) whose sums are divisible by 3:
+
+   1. 31, 41
+   1. 31, 71
+   1. 41, 61
+   1. 61, 71
+
+   Of those 4 pairs, we can pick two non-overlapping pairs in the following two ways:
+   
+   1. (31, 41), (61, 71)
+   1. (31, 71), (41, 61)
+   
+
+Example arrangement: 31, 41, 21, 51, 61, 71, 81
+
+
+So, if we treat those two pairs in each set as indivisible units, for example marked by $x_1$ and $x_2$, and we know that between them there need to be 2 numbers divisible by 3 (a unit which we can mark as $y_1$ and which we can pick in $\binom{3}{2} = 3$ ways), and we mark the remaining number divisible by 3 as $y_2$ then we can only have certain re-arrangements of the following elements:
+
+$x_1, y_1, x_2, y_2$
+
+To count the number of arrangements for this "layout", we can multiply:
+
+* 2 (number of two-sets of non-overlapping pairs)
+* 2 (number of ways to order these two pairs)
+* 2 (number of ways to order the elements of the pairs so that the sum of the elements on inner edges of the pairs are divisible by 3)
+* 3 (number of ways to pick two numbers (the pair $y_1$) divisible by 3 from the three numbers)
+* 2 (number of ways to order the two numbers divisible by 3)
+* 2 (number of ways to place $y_2$ (either in front or at the back))
+
+for the total of:
+
+$2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 3 = `r 2^5 * 3`$ ways
+
+There is one more "layout" possible which ensures no 3 non-divisible numbers in consecutive 4 numbers, namely:
+
+N,D,N,D,N,D,N
+
+where N stands for not divisible by 3 and D for divisible by 3.
+
+To count the number of arrangements for this "layout", we can multiply:
+
+* 2 (number of two-sets of non-overlapping non-divisible pairs)
+* 2 (number of ways to order these two pairs)
+* 2 (number of ways to order the elements of the pairs so that the sum of the elements on inner edges of the pairs are divisible by 3)
+* 3 (number of ways to pick two numbers (the pair $y_1$) divisible by 3 from the three numbers)
+* 2 (number of ways to order the two numbers divisible by 3)
+
+for the total of:
+
+$2 \cdot 2 \cdot 2 \cdot 2 \cdot 3 = `r 2^4 * 3`$ ways

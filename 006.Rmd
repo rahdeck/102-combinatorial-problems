@@ -1,0 +1,15 @@
+---
+title: 'Problem 6'
+author: "Radosław Majkut"
+date: "2023-10-02"
+output:
+  pdf_document
+---
+
+### Problem
+
+Twenty five boys and twenty five girls sit around a table. Prove that it is always possible to find a person both of whose neighbors are girls.
+
+### Solution
+
+Let's assume the opposite, that it's not always possible to find a person both of whose neighbors are girls. Let's denote girls by G and boys by B. Then when arranging girls and boys around the table, we need to avoid the following patterns: GGG and GBG, because they contain a person whose both neighbors are girls. So we can only have patterns of BBG, BGG and GGB (We cannot have BBB because, given equal numbers of boys and girls, it would imply a GGG somewhere else). If we start with GGB, then the next pattern needs to be either BBG or BGG, etc. But at the end we are left with a single B and a single G (because initially there were odd numbers of boys and girls). If we choose to end with BG, then it will join the starting pattern of GGB to form: BGGGB and thus the middle person (G) will have both neighbors of girls. If we choose to end with GB, then we'll end up with GBGGB and the first B will have both neighbors of girls. So our initial assumption that it is not always possible to find a person both of whose neighbors are girls was false and it is indeed always possible to find such a person.

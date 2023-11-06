@@ -1,0 +1,43 @@
+---
+title: 'Problem 15'
+author: "Radosław Majkut"
+date: "2023-10-11"
+output:  pdf_document
+---
+
+```{r echo=FALSE}
+options(scipen=999)
+```
+
+### Problem
+
+For how many pairs of consecutive integers in the set:
+
+$$\lbrace 1000 , 1001 , 1002 , ..., 2000 \rbrace$$
+
+is no carrying required when the two integers are added?
+
+### Solution
+
+No carrying is required only if all digits in the same positions in both numbers add up to less than 10. In the most significant position we only have two possible digits: 1 and 2, so they will not require carrying. In the remaining positions we can expect carrying. When does a pair of numbers not require carrying? Those would be the pairs of adjacent numbers (with a wrap-around to 0 after 9) from 0 to 9 that add up to less than 10. Let's enumerate all these pairs and mark the ones which won't add to more than 9:
+
+* (0, 1) < 10
+* (1, 2) < 10
+* (2, 3) < 10
+* (3, 4) < 10
+* (4, 5) < 10
+* (5, 6)
+* (6, 7)
+* (7, 8)
+* (8, 9)
+* (9, 0) < 10
+
+There are $5 \cdot 5 \cdot 5 = 125$ consecutive integer pairs where in the three least significant positions there pairs that  don't require carrying: (0, 1), (1, 2), (2, 3), (3, 4), (4, 5).
+
+There are $5 \cdot 5 = 25$ consecutive integer pairs where in the third and second least significant position we have only pairs that don't require carrying and in the least significant position there is a pair of (9, 0).
+
+There are $5$ consecutive integer pairs where in the third least significant position (hundreds) there are only pairs that don't require carrying and in the two least significant positions there are pairs of (9, 0). Those are pairs: (1099, 1100), (1199, 1200), (1299, 1300), (1399, 1400), (1499, 1500).
+
+There is $1$ consecutive integer pair where in the three least significant positions there are pairs of (9,0). This pair is (1999, 2000).
+
+The total is thus $125 + 25 + 5 + 1 = 156$.

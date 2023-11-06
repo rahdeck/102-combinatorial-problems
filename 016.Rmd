@@ -1,0 +1,22 @@
+---
+title: 'Problem 16'
+author: "Radosław Majkut"
+date: "2023-10-15"
+output:  pdf_document
+---
+
+```{r echo=FALSE}
+options(scipen=999)
+```
+
+### Problem
+
+Nine chairs in a row are to be occupied by six students and Professors Alpha, Beta, and Gamma. These three professors arrive before the six students and decide to choose their chairs so that each professor will be between two students. In how many ways can Professors Alpha, Beta, and Gamma choose their chairs?
+
+### Solution
+
+Depending on what is meant by "between two students" I can think of two solutions.
+
+1. Each professor is directly adjacent to two students, one on each side. Then we have $| * | * | * |$, where professors are represented by * and students by |. The remaining two students can occupy any of the four positions in $\binom{4}{2}$ ways and the professors can swap their three places in 3! ways for the total of $3!\binom{4}{2}$ ways.
+
+2. Each professor is between two students, but not necessarily adjacent to them. Then we have two students at the ends of the row. The professors can occupy three chairs out of the remaining seven in $7 \cdot 6 \cdot 5$ ways.

@@ -1,0 +1,21 @@
+---
+title: 'Problem 17'
+author: "Radosław Majkut"
+date: "2023-10-16"
+output:  pdf_document
+---
+
+```{r echo=FALSE}
+options(scipen=999)
+```
+
+### Problem
+
+Prove that among any 16 distinct positive integers not exceeding 100 there are four different ones, a, b, c, d, such that a + b = c + d.
+
+
+### Solution
+
+There are only 196 possible sums of two distinct numbers between 1 and 100, ranging from 3 (1 + 2) to 199 (99 + 100).
+
+There are a maximum of $\binom{16}{2} = 120$ possible sums of any two numbers out of sixteen numbers (this would be a + b) and a maximum of $\binom{14}{2} = 91$ possible sums of any two numbers out of the remaining fourteen numbers (this would be c + d), for the total of 212 possible sums.  Therefore some of these sums will need to be the same as they cannot exceed 196 in total.

@@ -1,0 +1,28 @@
+---
+title: 'Problem 18'
+author: "Radosław Majkut"
+date: "2023-10-21"
+output:  pdf_document
+---
+
+```{r echo=FALSE}
+options(scipen=999)
+```
+
+### Problem
+
+A child has a set of 96 distinct blocks. Each block is of one of 2 materials (plastic, wood), 3 sizes (small, medium, large), 4 colors (blue, green, red, yellow), and 4 shapes (circle, hexagon, square, triangle). How many blocks in the set are different from the “plastic medium red circle” in exactly two ways? (The “wood medium red square” is such a block.)
+
+### Solution
+
+Zero ways: $1$
+
+One way: $1 + 2 + 3 + 3 = 9$
+
+Two ways: $2 + 3 + 3 + 2 \cdot 3 + 2 \cdot 3 + 3 \cdot 3 = 29$
+
+Three ways: $2 \cdot 3 \cdot 3 + 1 \cdot 3 \cdot 3 + 1 \cdot 2 \cdot 3 + 1 \cdot 2 \cdot 3 = 39$
+
+Four ways: $1 \cdot 2 \cdot 3 \cdot 3 = 18$
+
+The total adds up to 96.
